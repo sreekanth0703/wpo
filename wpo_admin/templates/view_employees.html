@@ -1,0 +1,18 @@
+{% include "base.html" %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.dataTables.min.css' %}">
+<script type="text/javascript" src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/view_employees.js' %}"></script>
+
+<div style="padding-top:2%;">
+  <table id="example" class="display" style="width:100%;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Date of Birth</th>
+      </tr>
+    </thead>
+  </table>
+</div>

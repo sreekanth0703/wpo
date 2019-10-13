@@ -1,0 +1,24 @@
+<html>
+{% load staticfiles %}
+{% include "base.html" %}
+<script type="text/javascript" src="{% static 'js/bootstrap-filestyle.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/uploads.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/notify.min.js' %}"></script>
+
+<body>
+<div class="container">
+  <div style="padding-top: 5%;">
+    <h2>Uploads</h2>
+    <form id="employee-upload">
+    <div class="col-md-3" style="padding-top: 2%;">
+      <div class="form-group">
+        <input type="file" name="files" data-icon="false">
+      </div>
+    </div>
+    <input type="submit" name="submit" class="btn-primary">
+    </form>
+  </div>
+</div>
+</body>
+
+</html>

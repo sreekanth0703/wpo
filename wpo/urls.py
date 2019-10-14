@@ -19,6 +19,7 @@ import wpo_admin.views as wpo_admin_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', wpo_admin_views.uploads),
     path('uploads/', wpo_admin_views.uploads),
     path('employee_upload/', wpo_admin_views.employee_upload),
     path('view_employees/', wpo_admin_views.view_employees),

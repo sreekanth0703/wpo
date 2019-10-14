@@ -9,6 +9,7 @@ from django.db.models import Q
 import copy
 import re
 import json
+import datetime
 # Create your views here.
 
 EMPLOYEE_UPLOAD_MAPPING = {'Name': 'name', 'Email': 'email', 'Phone Number': 'phone_number', 'Date of Birth': 'dob'}
@@ -138,6 +139,9 @@ def get_employee_data(request):
     json_data['recordsTotal'] = json_data['recordsFiltered']
     if request_data.get('length'):
         stop_index = start_index + int(request_data.get('length'))
+    today = datetime.datetime.now().date()
     for employee in employees[start_index:stop_index]:
-        json_data['data'].append([employee.name, employee.email, employee.phone_number, str(employee.dob)])
+        dob = employee.dob
+        age = today.year - dob.year - ((today.month, today.day) <(dob.month, dob.day))
+        json_data['data'].append([employee.name, employee.email, employee.phone_number, age])
     return HttpResponse(json.dumps(json_data))
